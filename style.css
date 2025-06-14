@@ -1,0 +1,602 @@
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: 'fredoka', sans-serif;
+    }
+
+    body {
+      background:linear-gradient(-90deg, #7c3aed,#3d1e72); /* violet */
+      height: 100vh;
+      display: flex;
+      font-family: 'fredoka', sans-serif;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .Container {
+      width: 100%;
+      max-width: 600px;
+      padding: 30px;
+      /* background: rgba(0, 152, 155, 0.25); */
+      border-radius: 20px;
+      /* box-shadow: 0 0 20px rgba(0,0,0,0.3); */
+      text-align: center;
+    }
+
+    .InputContainer {
+      width: 100%;
+    }
+
+    .int {
+      display: flex;
+      align-items: center;
+      background-color: #240f5662;
+      padding: 8px 12px;
+      color: white;
+      border-radius: 30px;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
+    }
+
+    .int input {
+      flex: 1;
+      background-color: transparent;
+      border: none;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 10px;
+      color: white;
+    }
+
+    .int input::placeholder {
+      color: #ffffffc1;
+      opacity: 0.7;
+    }
+
+    .int input:focus {
+      outline: none;
+    }
+
+    .int button {
+      width: 80px;
+      height: 50px;
+      background: #111827a5;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .int button:hover {
+      background-color: #1f2937;
+      transform: scale(1.05);
+      position: relative;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+    .int button:hover::before {
+      position: absolute;
+      content: 'Search';
+      height: 30px;
+      padding: 5px;
+      width: 60px;
+      font-family: 'fredoka', sans-serif;
+      background-color: #020303fc;
+      border-radius: 5px;
+      margin-top: 100px;
+      color: white;
+      font-weight: bolder;
+      font-size: medium;
+      align-content: center;
+      transition: all 500ms ease-in-out;
+      animation: sliceFromUp 500ms linear;
+    }
+    @keyframes sliceFromUp{
+      0%{
+        opacity: 0.4;
+
+      }
+    }
+    .int button:hover::after {
+      content: '';
+      height: 10px;
+      width:10px;
+      background-color: #020303fc;
+      position: absolute;
+      margin-top: 61px;
+      border-radius: 0px 0px 10px;
+      transform: rotate(44.9deg);
+      animation: sliceFromUp 500ms linear infinite;
+    }
+    .SearchIcons {
+      position: relative;
+      width: 20px;
+      height: 20px;
+    }
+
+    .CircleIcon {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgb(226, 172, 229);
+      border-radius: 50%;
+      position: absolute;
+      top: -5px;
+      background-color: transparent;
+      left: -5px; 
+      z-index: 1;
+    }
+
+    .TilIcon {
+      width: 2px;
+      height: 12px;
+      background-color: white;
+      position: absolute;
+      left: 14px;
+      top: 10px;
+      border-radius:5px;
+      transform: rotate(-45deg);
+      transform-origin: center;
+    }
+
+    .SearchContainer {
+      margin-top: 20px;
+      color: white;
+      height: 50vh;
+      font-size: 18px;
+    }
+
+    @media (max-width: 480px) {
+      .Container {
+        padding: 20px;
+      }
+
+      .int {
+        flex-direction: row;
+        padding: 6px;
+      }
+      .int input{
+        max-width: 100%;
+      }
+      .int button {
+        max-width: 44px;
+        max-height: 44px;
+      }
+
+      .SearchIcons {
+        width: 18px;
+        height: 18px;
+      }
+
+      .CircleIcon {
+        width: 18px;
+        height: 18px;
+      }
+
+      .TilIcon {
+        height: 10px;
+        left: 12px;
+        top: 9px;
+      }
+    }
+  .SearchContainer {
+          background: rgba(168, 168, 168, 0.128);
+      /* border-radius: 20px; */
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    max-width: 450px;
+    width: 90%;
+    margin: 10px auto;
+    padding: 15px 20px;
+    border-radius: 16px;
+    /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); beautiful box shadow */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: min-content;
+  }
+.SearchContainer::-webkit-scrollbar{
+  /* background-color: rgb(161, 60, 255); */
+
+  width: 7px;
+  border-radius: 5px;
+  text-align:center;
+}
+.SearchContainer::-webkit-scrollbar-thumb{
+  margin: auto;
+  border-radius: 10px;
+  background:linear-gradient(270deg,rgba(234, 234, 234, 0.358),transparent);
+}
+  .tit {
+    display: flex;
+    justify-content: space-between; /* left/right alignment */
+    align-items: center;
+    background-color: transparent; /* light gray background for each item */
+    padding: 2px;
+    cursor: pointer;
+    /* border-radius: 10px; */
+    font-family: 'fredoka', sans-serif;
+    font-size: 16px;
+    /* color: #fcfdff; */
+    transition: all 0.2s ease;
+    color: rgb(250, 195, 195);
+    margin: 0;
+  }
+
+  .tit:hover {
+    /* background-color: #e5e7eb; slightly darker on hover
+     */
+     background:linear-gradient(90deg,transparent,rgba(240, 240, 240, 0.306),transparent);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.16); */
+     transform: translate(0,-4px);
+     color: black;
+     /* padding-left: 20px; */
+  }
+.tit:hover span{
+  display: block;
+}
+  .tit span {
+    cursor: pointer;
+    font-weight: bold;
+     /* red tone for delete icon */
+    transition: transform 0.2s ease;
+    display: none;
+  }
+
+  .tit span:hover {
+    transform: scale(1.2);
+    color:darkred;
+  }
+
+  .tit text {
+    flex: 1;
+    text-align: left;
+  }
+
+.Setting{
+position: absolute;
+background-color: transparent;
+top: 0;
+right: 0;
+}
+.Setting .IconDiv{
+  /* overflow: hidden; */
+  max-width: 100px;
+}
+.Setting .IconDiv button{
+height: 50px;
+width: 50px;
+margin: 10px;
+color: white;
+font-size: x-large;
+font-family: 'fredoka', sans-serif;
+border-radius: 10px;
+box-shadow: 0px 0px  20px rgba(68, 68, 68, 0.772);
+border: 2px solid rgba(68, 68, 68, 0.386);
+padding: 0;
+align-items: center;
+align-content: center;
+text-align: center;
+/* background-color: #213259c9; */
+ background: #111827a5;
+transition: all 500ms ease;
+position: relative;
+}
+.Setting .IconDiv button[cli='0']:hover{
+      box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+      border-radius: 100px;
+}
+
+    .Setting .IconDiv button[cli='0']:hover:before {
+      position: absolute;
+      content: 'settings';
+      height: 30px;
+      padding: 5px;
+      width: 60px;
+      font-family: 'fredoka', sans-serif;
+      background-color: #020303fc;
+      border-radius: 5px;
+      margin-top:-20px;
+      margin-left: -105px;
+      color: white;
+      font-weight: bolder;
+      font-size: medium;
+      z-index: -1;
+      align-content: center;
+      transition: all 500ms ease-in-out;
+      animation: sliceFromleft 800ms linear;
+    }
+    @keyframes sliceFromleft {
+      0% {
+        opacity: 0;
+        width: 20px;
+        transform: translate(70px,0);
+        overflow: hidden;
+      }
+      25%{
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+      
+    }
+    .Setting .IconDiv button[cli='0']:hover::after {
+      content: '';
+      height: 10px;
+      width:10px;
+      background-color: #020303fc;
+      position: absolute;
+      margin-top: -5px;
+      border-radius: 0px 0px 10px;
+      transform: rotate(135deg);
+      animation: sliceFromUp 800ms linear infinite;
+      margin-left: -40px;
+
+    }
+.Setting .Branches{
+  animation: sliceFromleft 410ms linear;
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  background:linear-gradient(120deg,#2f8bd16c,#3dceac54,#b5e9463c);
+  backdrop-filter: blur(10px);
+  z-index: 3;
+  top: 0;
+  /* margin: auto; */
+  margin-left: -230px;
+  margin-top: 40px;
+  border-radius: 10px;
+  /* transition: all 100ms ease-in-out; */
+  box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.3);
+  padding: 5px;
+  /* display: grid; */
+  gap:5px;
+}
+.Setting .Branches .SinLabel{
+height: 40px;
+width: 100%;
+display: flex;
+align-items: center;
+align-content: center;
+gap: 30%;
+background: transparent;
+border-radius: 15px;
+color:white;
+margin-top: 5px;
+
+padding-left: 10px;
+transition: all 100ms ease-in-out;
+}
+.Blur{
+  margin-top: 5px;
+  width: 100%;
+  height: 3px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgb(0, 0, 0.54,0.5);
+  border: 2px solid transparent;
+  backdrop-filter: blur(10px);
+}
+.Setting .Branches .SinLabel:hover{
+  transform: translate(0px,-5px);
+}
+.Setting .Branches .SinLabel text{
+
+}
+#Auto-Secure{
+  display: none;
+}
+
+.SwichPro {
+  cursor: pointer;
+  /* text-indent: -9999px; */
+  width: 60px;
+  height: 30px;
+  background: white;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+ .SwichPro:after {
+  content: '✕';
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  color: #5e65c8;
+  font-weight: bolder;
+  font-size: larger;
+  position: absolute;
+  top: -2.0px;
+  left: 0px;
+  border: 3px solid #5e65c8;
+  width: 29px;
+  height: 29px;
+  background: black;
+  border-radius: 90px;
+  /* box-shadow: 0 0  10px rgba(82, 82, 82, 0.539); */
+  transition: 0.3s;
+}
+ .SwichPro:hover:after {
+  width: 35px;
+ }
+#Auto-Secure:checked + .SwichPro {
+  background: black;
+  color: rgb(111, 255, 123);
+
+}
+
+#Auto-Secure:checked + .SwichPro:after {
+  content: '✓';
+  left: calc(100% - 0px);
+  color:#6166b4;
+  border-color: #6166b4;
+  background-color: rgb(255, 255, 255);
+  transform: translateX(-100%);
+}
+ .SwichPro:active:after {
+  width: 50px;
+}
+
+.NTXV{
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
+background-color: transparent;
+z-index: 4;
+}
+.Messenger{
+position: absolute;
+background-color: #240f5662;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+box-shadow: 0px 3px 46px 0px rgba(0,0,0,0.16),
+0px 3px 44px 0px rgba(0,0,0,0.23);
+margin: auto;
+min-width: 100px;
+max-width: 400px;
+text-align: center;
+align-items: center;
+align-content: center;
+height: 200px;
+backdrop-filter: blur(4px);
+padding: 5px;
+color: white;
+border-radius: 40px;
+z-index: 5;
+}
+.Conver{
+  position: relative;
+}
+#MainPoint{
+height: 100px;
+font-weight: normal;
+}
+#MainPoint h2{
+  color: rgb(250, 141, 64);
+  text-decoration: 2px double rgba(226, 83, 43, 0.58) underline;
+}
+
+#Messenger .Brck{
+  border: 2px solid rgba(146, 109, 182, 0.473);
+  min-width: 100px;
+  max-width: 90%;
+  margin: auto;
+  height: 0;
+  border-radius: 10px;
+}
+.ActionTakers{
+position: relative;
+background-color: transparent;
+height: 50px;
+margin-top: 10px;
+}
+
+.ActionTakers .Cancel{
+height: 50px;
+max-width: 200px;
+min-width: 100px;
+border-radius: 50px;
+border: 2px solid white;
+background-color: transparent;
+color: white;
+font-weight: lighter;
+font-size: large;
+position: absolute;
+cursor: pointer;
+left: 0;
+margin-left: 10px;
+transition: all 50ms ease-in-out;
+box-shadow: 0px 3px 46px 0px rgba(0,0,0,0.16),
+0px 3px 44px 0px rgba(0,0,0,0.23) inset;
+}
+
+.ActionTakers .Secure{
+  
+height: 50px;
+max-width: 200px;
+min-width: 100px;
+border-radius: 50px;
+border: 2px solid #111827a5;
+cursor: pointer;
+background: #111827a5;
+color: white;
+font-weight: lighter;
+font-size: large;
+position: absolute;
+right: 0;
+margin-right: 10px;
+box-shadow: 0px 3px 46px 0px rgba(0,0,0,0.16),
+0px 3px 44px 0px rgba(0,0,0,0.23) inset;
+}
+.ActionTakers .Cancel:hover{
+  scale: 1.1;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+.ActionTakers .Secure:hover{
+  scale: 1.1;
+  background-color: #1f2937;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+
+}
+.smll{
+  display:flex;
+  margin-left: 5px;
+  gap: 5px;
+  position: relative;
+  align-items: center;
+  color: rgb(201, 201, 201);
+  margin-bottom: 5px;
+}
+.smll .ChkBox {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 4px;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    display: block;
+  }
+.smll .ChkBox:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 8px;
+    opacity: 0;
+    color:black;
+    left:0;
+    right:0;
+    bottom: 0;
+    position: absolute;
+    top: -1.1px;
+    z-index: 10;
+    transform: rotate(-45deg);
+    width: 12px;
+    margin:auto;
+
+  }
+#DoNotShowAgain {
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+  }
+ input#DoNotShowAgain:checked +  .ChkBox {
+    background-color: #66bb6a;
+    border-color: #66bb6a;
+  }
+
+ input#DoNotShowAgain:checked +  .ChkBox:after {
+    opacity: 1;
+  }
